@@ -1,3 +1,5 @@
+### Required Variables ####
+
 variable "vpc_name" {
     description = "The name of the VPC. Best not to include non-alphanumeric characters."
 }
@@ -10,7 +12,7 @@ variable "vpc_nat_key_file" {
     description = "Path to a key file for the VPC NAT instance"
 }
 
-# resources
+### resources ###
 
 resource "aws_vpc" "default" {
   cidr_block = "10.1.0.0/16"
@@ -83,9 +85,7 @@ resource "aws_route_table_association" "public_table" {
 
 }
 
-#############
-## Outputs ##
-#############
+### Outputs ###
 
 output "vpc_id" {
     value = "${aws_vpc.default.id}"
